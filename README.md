@@ -1,78 +1,175 @@
 # Full Stack Job Portal Application
 
-Monorepo with:
-- `backend/`: FastAPI + SQLite (dev) + JWT auth
-- `frontend/`: React
+A modern Full Stack Job Portal built with FastAPI, React, TypeScript, SQLite, and JWT Authentication.
 
-## Quick start
+## Features
 
-### 1) Backend
-```bash
-cd "backend"
-python3 -m venv .venv
-source .venv/bin/activate
-pip install -r requirements.txt
-uvicorn app.main:app --reload --port 8000
+* User Registration & Login
+* JWT Authentication
+* Browse Available Jobs
+* View Job Details
+* Apply for Jobs
+* Track My Applications
+* Responsive React Frontend
+* FastAPI REST API Backend
+* SQLite Database Integration
+
+## Tech Stack
+
+### Frontend
+
+* React
+* TypeScript
+* Vite
+* CSS
+
+### Backend
+
+* FastAPI
+* SQLAlchemy
+* SQLite
+* JWT Authentication
+* Pydantic
+
+## Project Structure
+
+```text
+Full Stack Job Portal Application
+│
+├── backend/
+│   ├── app/
+│   ├── requirements.txt
+│   ├── app.db
+│   └── seed_internships.py
+│
+├── frontend/
+│   ├── src/
+│   ├── public/
+│   ├── package.json
+│   └── vite.config.ts
+│
+└── render.yaml
 ```
 
-### 2) Frontend
-In another terminal:
+## Installation
+
+### Backend Setup
+
 ```bash
-cd "frontend"
+cd backend
+
+python3 -m venv .venv
+
+source .venv/bin/activate
+
+pip install -r requirements.txt
+
+uvicorn app.main:app --reload
+```
+
+Backend runs on:
+
+```text
+http://127.0.0.1:8000
+```
+
+---
+
+### Frontend Setup
+
+Open another terminal:
+
+```bash
+cd frontend
+
 npm install
+
 npm run dev
 ```
 
-Open the URL printed by the frontend dev server.
+Frontend runs on:
+
+```text
+http://localhost:5173
+```
+
+(or the next available port)
+
+## API Endpoints
+
+### Authentication
+
+* POST /api/auth/register
+* POST /api/auth/login
+
+### Jobs
+
+* GET /api/jobs
+* GET /api/jobs/{job_id}
+* POST /api/jobs
+
+### Applications
+
+* POST /api/applications
+* GET /api/applications/mine
+
+## Database
+
+The application uses SQLite for development.
+
+Database file:
+
+```text
+backend/app.db
+```
+
+Sample internship data can be inserted using:
+
+```bash
+python seed_internships.py
+```
 
 ## Deployment
 
-Recommended simple setup:
-- Backend: Render Web Service
-- Frontend: Render Static Site, Vercel, or Netlify
+### Backend
 
-This repo also includes `render.yaml`, so you can deploy both services together using a Render Blueprint.
+* Render
+* Railway
 
-### Render Blueprint
-1. Push this project to GitHub.
-2. In Render, choose **New +** -> **Blueprint**.
-3. Connect the GitHub repo and select `render.yaml`.
-4. When Render asks for environment variables:
-   - `FRONTEND_ORIGINS`: set this to your frontend URL, for example `https://job-portal-frontend.onrender.com`
-   - `VITE_API_BASE_URL`: set this to your backend URL, for example `https://job-portal-api.onrender.com`
+### Frontend
 
-If Render gives your services slightly different URLs, update those two values after the first deploy and redeploy.
+* Netlify
+* Vercel
+* Render Static Site
 
-### Backend settings
-If deploying the `backend/` folder as a Render Web Service:
+## Screenshots
 
-```bash
-Build Command: pip install -r requirements.txt
-Start Command: python migrate_add_phone_number.py && python seed_internships.py && uvicorn app.main:app --host 0.0.0.0 --port $PORT
-```
+Add screenshots here after deployment.
 
-Set environment variables:
+### Home Page
 
-```bash
-JWT_SECRET_KEY=<use-a-long-random-secret>
-FRONTEND_ORIGINS=https://your-frontend-domain.com
-DATABASE_URL=sqlite:///./app.db
-```
+![Home Page](screenshots/home.png)
 
-For a public app where users will register and apply, use Render PostgreSQL or attach a persistent disk and store SQLite under that disk path. Otherwise, local SQLite data can be lost when the service redeploys or restarts.
+### Job Listings
 
-### Frontend settings
-If deploying the `frontend/` folder as a static site:
+![Jobs](screenshots/jobs.png)
 
-```bash
-Build Command: npm install && npm run build
-Publish Directory: dist
-```
+### Apply Job
 
-Set this environment variable to your deployed backend URL:
+![Apply](screenshots/apply.png)
 
-```bash
-VITE_API_BASE_URL=https://your-backend-domain.onrender.com
-```
+## Future Enhancements
 
-For local development, copy `frontend/.env.example` to `frontend/.env.local` if you want to customize the API URL.
+* Resume Upload
+* Admin Dashboard
+* Company Profiles
+* Email Notifications
+* PostgreSQL Support
+* Advanced Job Search & Filters
+
+## Author
+
+Gangadhar Reddy
+
+GitHub:
+https://github.com/gangadharreddy065-create
