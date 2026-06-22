@@ -5,7 +5,7 @@ services:
     rootDir: backend
     plan: free
     buildCommand: pip install -r requirements.txt
-    startCommand: python migrate_add_phone_number.py && python seed_internships.py && uvicorn app.main:app --host 0.0.0.0 --port $PORT
+    startCommand: uvicorn app.main:app --host 0.0.0.0 --port $PORT
     healthCheckPath: /health
     envVars:
       - key: JWT_SECRET_KEY
@@ -13,7 +13,7 @@ services:
       - key: DATABASE_URL
         value: sqlite:///./app.db
       - key: FRONTEND_ORIGINS
-        sync: false
+        value: http://localhost:5173
 
   - type: web
     name: job-portal-frontend
@@ -23,4 +23,4 @@ services:
     staticPublishPath: ./dist
     envVars:
       - key: VITE_API_BASE_URL
-        sync: false
+        value: https://job-portal-api.onrender.com
