@@ -18,13 +18,23 @@ class JobCreate(BaseModel):
     job_type: str = "Full-time"
 
 
+from sqlalchemy import or_
+
 @router.get("")
 def list_jobs(q: str | None = None, location: str | None = None, db: Session = Depends(lambda: SessionLocal())) -> list[dict]:
     init_db()
     try:
         query = db.query(Job)
         if q:
-            query = query.filter(Job.title.ilike(f"%{q}%"))
+            terms = q.split()
+            for term in terms:
+                query = query.filter(
+                    or_(
+                        Job.title.ilike(f"%{term}%"),
+                        Job.description.ilike(f"%{term}%"),
+                        Job.company.ilike(f"%{term}%")
+                    )
+                )
         if location:
             query = query.filter(Job.location.ilike(f"%{location}%"))
 
