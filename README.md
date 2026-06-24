@@ -1,4 +1,4 @@
-<img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 54 58 PM" src="https://github.com/user-attachments/assets/194e7719-2b34-41cf-832f-c08ff9be78bb" /><img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 54 58 PM" src="https://github.com/user-attachments/assets/d7d51b7d-e7b8-4666-a6e9-532f5a08fc63" /><img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 54 58 PM" src="https://github.com/user-attachments/assets/18d2e3e6-7128-4eff-8f50-4033a5c0c482" /><img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 57 03 PM" src="https://github.com/user-attachments/assets/92b05b22-bed6-4073-9c89-44d0d0471f17" /><img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 57 03 PM" src="https://github.com/user-attachments/assets/fdd48d3b-c897-4014-9a27-89914047bdf7" />
+<img width="1470" height="835" alt="Screenshot 2026-06-24 at 2 57 03 PM" src="https://github.com/user-attachments/assets/fdd48d3b-c897-4014-9a27-89914047bdf7" />
 # Full Stack Job Portal Application
 
 A modern Full Stack Job Portal built with FastAPI, React, TypeScript, SQLite, and JWT Authentication.
