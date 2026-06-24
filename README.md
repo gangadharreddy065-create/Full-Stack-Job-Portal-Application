@@ -3,6 +3,9 @@
 
 A modern Full Stack Job Portal built with FastAPI, React, TypeScript, SQLite, and JWT Authentication.
 
+# Live Application:
+https://job-portal-frontend-195k.onrender.com/
+
 ## Features
 
 * User Registration & Login
